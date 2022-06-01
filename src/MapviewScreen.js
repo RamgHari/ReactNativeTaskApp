@@ -1,5 +1,5 @@
 import React,{ useRef, useState, useEffect } from 'react'
-import { View, PermissionsAndroid, ActivityIndicator, StyleSheet } from 'react-native'
+import { View, PermissionsAndroid, ActivityIndicator, StyleSheet, Button,Text } from 'react-native'
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
 import Geolocation from 'react-native-geolocation-service';
 
@@ -12,6 +12,7 @@ export default function MapviewScreen({route}) {
     }
     const [currentLoc,setCurrentLoc] = useState(null)
     const [loading,setLoading] = useState(true)
+
 
     useEffect( () => {
         async function fetchLocation (){
@@ -97,7 +98,9 @@ export default function MapviewScreen({route}) {
                 }}>
             </Marker>
         </MapView>
-
+        <View style={{position:'absolute',bottom:0}}>
+          <Button title={'PIN'}  />
+        </View>
     </View>
   )
 }
